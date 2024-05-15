@@ -1,5 +1,5 @@
 if IY_LOADED and not _G.IY_DEBUG == true then
-	-- error("Infinite Yield is already running!", 0)
+	-- error("Codling is already running!", 0)
 	return
 end
 
@@ -12,12 +12,12 @@ Players = cloneref(game:GetService("Players"))
 if not game:IsLoaded() then
 	local notLoaded = Instance.new("Message")
 	notLoaded.Parent = COREGUI
-	notLoaded.Text = 'Infinite Yield is waiting for the game to load'
+	notLoaded.Text = 'Codling is waiting for the game to load'
 	game.Loaded:Wait()
 	notLoaded:Destroy()
 end
 
-currentVersion = '5.9.4'
+currentVersion = '1.0'
 
 Holder = Instance.new("Frame")
 Title = Instance.new("TextLabel")
@@ -207,7 +207,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Infinite Yield FE v" .. currentVersion
+Title.Text = "Codling v" .. currentVersion
 
 do
 	local emoji = ({
@@ -1446,21 +1446,6 @@ AliasHint.TextStrokeColor3 = Color3.new(1, 1, 1)
 AliasHint.TextWrapped = true
 AliasHint.ZIndex = 10
 table.insert(text1,AliasHint)
-
-PluginsHint.Name = "PluginsHint"
-PluginsHint.Parent = PluginsFrame
-PluginsHint.BackgroundTransparency = 1
-PluginsHint.BorderSizePixel = 0
-PluginsHint.Position = UDim2.new(0, 25, 0, 40)
-PluginsHint.Size = UDim2.new(0, 200, 0, 50)
-PluginsHint.Font = Enum.Font.SourceSansItalic
-PluginsHint.TextSize = 16
-PluginsHint.Text = "Download plugins from the IY Discord (discord.gg/78ZuWSq)"
-PluginsHint.TextColor3 = Color3.new(1, 1, 1)
-PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
-PluginsHint.TextWrapped = true
-PluginsHint.ZIndex = 10
-table.insert(text1,PluginsHint)
 
 PositionsHint.Name = "PositionsHint"
 PositionsHint.Parent = PositionsFrame
@@ -2733,9 +2718,6 @@ reference = (function()
 		{111,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={105},Position=UDim2.new(0,8,0,148),Size=UDim2.new(1,-8,0,16),Text="Setting up 'goto $1' on the OnChatted event will teleport you to any player that chats.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,TextYAlignment=0,ZIndex=10,}},
 		{112,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="Section",Parent={7},Size=UDim2.new(1,0,0,105),ZIndex=10,}},
 		{113,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Header",Parent={112},Position=UDim2.new(0,8,0,5),Size=UDim2.new(1,-8,0,20),Text="Get Further Help",TextColor3=Color3.new(1,1,1),TextSize=20,TextXAlignment=0,ZIndex=10,}},
-		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="You can join the Discord server to get support with IY,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
-		{115,"Frame",{BackgroundColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),BorderSizePixel=0,Name="Line",Parent={112},Position=UDim2.new(0,10,1,-1),Size=UDim2.new(1,-20,0,1),Visible=false,ZIndex=10,}},
-		{116,"TextButton",{BackgroundColor3=Color3.new(0.48627451062202,0.61960786581039,0.85098040103912),BorderColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),Font=4,Name="InviteButton",Parent={112},Position=UDim2.new(0,5,0,75),Size=UDim2.new(1,-10,0,25),Text="Copy Discord Invite Link (https://discord.gg/78ZuWSq)",TextColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),TextSize=16,ZIndex=10,}},
 	})
 	for i,v in pairs(main.Content.List:GetDescendants()) do
 		if v:IsA("TextLabel") then
@@ -2750,19 +2732,7 @@ reference = (function()
 		main:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
 	end)
 	local inviteButton = main:FindFirstChild("InviteButton",true)
-	local lastPress = nil
-	inviteButton.MouseButton1Click:Connect(function()
-		if everyClipboard then
-			toClipboard("https://discord.gg/78ZuWSq")
-			inviteButton.Text = "Copied"
-		else
-			inviteButton.Text = "No Clipboard Function, type out the link"
-		end
-		local pressTime = tick()
-		lastPress = pressTime
-		wait(2)
-		if lastPress ~= pressTime then return end
-		inviteButton.Text = "Copy Discord Invite Link (https://discord.gg/78ZuWSq)"
+
 	end)
 	dragGUI(main)
 	main.Parent = PARENT
@@ -2980,7 +2950,7 @@ function saves()
             Directions.Size = UDim2.new(0, 340, 0, 185)
             Directions.Font = Enum.Font.SourceSans
             Directions.TextSize = 14
-            Directions.Text = "Sorry, but we have attempted to parse your data, but it is unreadable!\n\nInfinite Yield is now using factory settings until your executor fixes its file system.\n\nYour data has not been deleted."
+            Directions.Text = "Sorry, but we have attempted to parse your data, but it is unreadable!\n\nCodling is now using factory settings until your executor fixes its file system.\n\nYour data has not been deleted."
             Directions.TextColor3 = Color3.new(1, 1, 1)
             Directions.TextWrapped = true
             Directions.TextXAlignment = Enum.TextXAlignment.Left
@@ -3888,7 +3858,7 @@ SaveChatlogs.MouseButton1Down:Connect(function()
 		if #scroll_2:GetChildren() > 0 then
 			notify("Loading",'Hold on a sec')
 			local placeName = CleanFileName(MarketplaceService:GetProductInfo(PlaceId).Name)
-			local writelogs = '-- Infinite Yield Chat logs for "'..placeName..'"\n'
+			local writelogs = '-- Codling Chat logs for "'..placeName..'"\n'
 			for _, child in pairs(scroll_2:GetChildren()) do
 				writelogs = writelogs..'\n'..child.Text
 			end
@@ -4329,7 +4299,6 @@ function autoComplete(str,curText)
 end
 
 CMDs = {}
-CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'olddex / odex', DESC = 'Opens Old DEX by Moon'}
@@ -6333,30 +6302,6 @@ addcmd('clraliases',{},function(args, speaker)
 	notify('Aliases Modified','Removed all aliases')
 	updatesaves()
 	refreshaliases()
-end)
-
-addcmd('discord', {'support', 'help'}, function(args, speaker)
-	if everyClipboard then
-		toClipboard('https://discord.com/invite/dYHag43eeU')
-		notify('Discord Invite', 'Copied to clipboard!\ndiscord.gg/dYHag43eeU')
-	else
-		notify('Discord Invite', 'discord.gg/dYHag43eeU')
-	end
-	if httprequest then
-		httprequest({
-			Url = 'http://127.0.0.1:6463/rpc?v=1',
-			Method = 'POST',
-			Headers = {
-				['Content-Type'] = 'application/json',
-				Origin = 'https://discord.com'
-			},
-			Body = HttpService:JSONEncode({
-				cmd = 'INVITE_BROWSER',
-				nonce = HttpService:GenerateGUID(false),
-				args = {code = 'dYHag43eeU'}
-			})
-		})
-	end
 end)
 
 addcmd('keepiy', {}, function(args, speaker)
@@ -12421,102 +12366,6 @@ end
 IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
-	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version')
-		return HttpService:JSONDecode(versionJson)
-	end)
-
-	if success then
-		if currentVersion ~= latestVersionInfo.Version then
-			notify('Outdated','Get the new version at infyiff.github.io')
-		end
-
-		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
-			local AnnGUI = Instance.new("Frame")
-			local background = Instance.new("Frame")
-			local TextBox = Instance.new("TextLabel")
-			local shadow = Instance.new("Frame")
-			local PopupText = Instance.new("TextLabel")
-			local Exit = Instance.new("TextButton")
-			local ExitImage = Instance.new("ImageLabel")
-
-			AnnGUI.Name = randomString()
-			AnnGUI.Parent = PARENT
-			AnnGUI.Active = true
-			AnnGUI.BackgroundTransparency = 1
-			AnnGUI.Position = UDim2.new(0.5, -180, 0, -500)
-			AnnGUI.Size = UDim2.new(0, 360, 0, 20)
-			AnnGUI.ZIndex = 10
-
-			background.Name = "background"
-			background.Parent = AnnGUI
-			background.Active = true
-			background.BackgroundColor3 = currentShade1
-			background.BorderSizePixel = 0
-			background.Position = UDim2.new(0, 0, 0, 20)
-			background.Size = UDim2.new(0, 360, 0, 150)
-			background.ZIndex = 10
-
-			TextBox.Parent = background
-			TextBox.BackgroundTransparency = 1
-			TextBox.Position = UDim2.new(0, 5, 0, 5)
-			TextBox.Size = UDim2.new(0, 350, 0, 140)
-			TextBox.Font = Enum.Font.SourceSans
-			TextBox.TextSize = 18
-			TextBox.TextWrapped = true
-			TextBox.Text = Announcement
-			TextBox.TextColor3 = currentText1
-			TextBox.TextXAlignment = Enum.TextXAlignment.Left
-			TextBox.TextYAlignment = Enum.TextYAlignment.Top
-			TextBox.ZIndex = 10
-
-			shadow.Name = "shadow"
-			shadow.Parent = AnnGUI
-			shadow.BackgroundColor3 = currentShade2
-			shadow.BorderSizePixel = 0
-			shadow.Size = UDim2.new(0, 360, 0, 20)
-			shadow.ZIndex = 10
-
-			PopupText.Name = "PopupText"
-			PopupText.Parent = shadow
-			PopupText.BackgroundTransparency = 1
-			PopupText.Size = UDim2.new(1, 0, 0.95, 0)
-			PopupText.ZIndex = 10
-			PopupText.Font = Enum.Font.SourceSans
-			PopupText.TextSize = 14
-			PopupText.Text = "Server Announcement"
-			PopupText.TextColor3 = currentText1
-			PopupText.TextWrapped = true
-
-			Exit.Name = "Exit"
-			Exit.Parent = shadow
-			Exit.BackgroundTransparency = 1
-			Exit.Position = UDim2.new(1, -20, 0, 0)
-			Exit.Size = UDim2.new(0, 20, 0, 20)
-			Exit.Text = ""
-			Exit.ZIndex = 10
-
-			ExitImage.Parent = Exit
-			ExitImage.BackgroundColor3 = Color3.new(1, 1, 1)
-			ExitImage.BackgroundTransparency = 1
-			ExitImage.Position = UDim2.new(0, 5, 0, 5)
-			ExitImage.Size = UDim2.new(0, 10, 0, 10)
-			ExitImage.Image = "rbxassetid://5054663650"
-			ExitImage.ZIndex = 10
-
-			wait(1)
-			AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
-
-			Exit.MouseButton1Click:Connect(function()
-				AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-				wait(0.6)
-				AnnGUI:Destroy()
-			end)
-		end
-	end
-end)
-
-task.spawn(function()
 	wait()
 	Credits:TweenPosition(UDim2.new(0, 0, 0.9, 0), "Out", "Quart", 0.2)
 	Logo:TweenSizeAndPosition(UDim2.new(0, 175, 0, 175), UDim2.new(0, 37, 0, 45), "Out", "Quart", 0.3)
@@ -12530,5 +12379,5 @@ task.spawn(function()
 	Credits:Destroy()
 	IntroBackground:Destroy()
 	minimizeHolder()
-	if IsOnMobile then notify("Unstable Device", "On mobile, Infinite Yield may have issues or features that are not functioning correctly.") end
+	if IsOnMobile then notify("Unstable Device", "On mobile, Codling may have issues or features that are not functioning correctly.") end
 end)
