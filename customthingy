@@ -1,9 +1,9 @@
-if CN_LOADED and not _G.CN_DEBUG == true then
+if IY_LOADED and not _G.IY_DEBUG == true then
 	-- error("Codling is already running!", 0)
 	return
 end
 
-pcall(function() getgenv().CN_LOADED = true end)
+pcall(function() getgenv().IY_LOADED = true end)
 
 local cloneref = cloneref or function(o) return o end
 COREGUI = cloneref(game:GetService("CoreGui"))
@@ -1374,7 +1374,7 @@ About.Position = UDim2.new(0, 17, 0, 10)
 About.Size = UDim2.new(0, 187, 0, 49)
 About.Font = Enum.Font.SourceSans
 About.TextSize = 14
-About.Text = "Plugins are .CN files and should be located in the 'workspace' folder of your exploit."
+About.Text = "Plugins are .iy files and should be located in the 'workspace' folder of your exploit."
 About.TextColor3 = Color3.fromRGB(255, 255, 255)
 About.TextWrapped = true
 About.TextYAlignment = Enum.TextYAlignment.Top
@@ -1455,7 +1455,7 @@ PluginsHint.Position = UDim2.new(0, 25, 0, 40)
 PluginsHint.Size = UDim2.new(0, 200, 0, 50)
 PluginsHint.Font = Enum.Font.SourceSansItalic
 PluginsHint.TextSize = 16
-PluginsHint.Text = "Download plugins from the CN Discord (discord.gg/78ZuWSq)"
+PluginsHint.Text = "Download plugins from the IY Discord (discord.gg/78ZuWSq)"
 PluginsHint.TextColor3 = Color3.new(1, 1, 1)
 PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
 PluginsHint.TextWrapped = true
@@ -1904,7 +1904,7 @@ ViewportTextBox.convert(Cmdbar).View.ZIndex = 10
 ViewportTextBox.convert(Cmdbar_2).View.ZIndex = 10
 ViewportTextBox.convert(Cmdbar_3).View.ZIndex = 10
 
-CNMouse = Players.LocalPlayer:GetMouse()
+IYMouse = Players.LocalPlayer:GetMouse()
 PlayerGui = Players.LocalPlayer:FindFirstChildWhichIsA("PlayerGui")
 UserInputService = cloneref(game:GetService("UserInputService"))
 TweenService = cloneref(game:GetService("TweenService"))
@@ -2733,7 +2733,7 @@ reference = (function()
 		{111,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={105},Position=UDim2.new(0,8,0,148),Size=UDim2.new(1,-8,0,16),Text="Setting up 'goto $1' on the OnChatted event will teleport you to any player that chats.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,TextYAlignment=0,ZIndex=10,}},
 		{112,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="Section",Parent={7},Size=UDim2.new(1,0,0,105),ZIndex=10,}},
 		{113,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Header",Parent={112},Position=UDim2.new(0,8,0,5),Size=UDim2.new(1,-8,0,20),Text="Get Further Help",TextColor3=Color3.new(1,1,1),TextSize=20,TextXAlignment=0,ZIndex=10,}},
-		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="You can join the Discord server to get support with CN,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
+		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="You can join the Discord server to get support with IY,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
 		{115,"Frame",{BackgroundColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),BorderSizePixel=0,Name="Line",Parent={112},Position=UDim2.new(0,10,1,-1),Size=UDim2.new(1,-20,0,1),Visible=false,ZIndex=10,}},
 		{116,"TextButton",{BackgroundColor3=Color3.new(0.48627451062202,0.61960786581039,0.85098040103912),BorderColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),Font=4,Name="InviteButton",Parent={112},Position=UDim2.new(0,5,0,75),Size=UDim2.new(1,-10,0,25),Text="Copy Discord Invite Link (https://discord.gg/78ZuWSq)",TextColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),TextSize=16,ZIndex=10,}},
 	})
@@ -2783,7 +2783,7 @@ defaultsettings = {
 	prefix = ';';
 	StayOpen = false;
 	espTransparency = 0.3;
-	keepCN = true;
+	keepIY = true;
 	logsEnabled = false;
 	jLogsEnabled = false;
 	aliases = {};
@@ -2818,13 +2818,13 @@ local loadedEventData = nil
 local jsonAttempts = 0
 function saves()
 	if writefileExploit() and jsonAttempts < 50 then
-		if pcall(function() readfile("CN_FE.CN") end) then
-			if readfile("CN_FE.CN") ~= nil then
+		if pcall(function() readfile("IY_FE.iy") end) then
+			if readfile("IY_FE.iy") ~= nil then
 				local success, response = pcall(function()
-					local json = HttpService:JSONDecode(readfile("CN_FE.CN"))
+					local json = HttpService:JSONDecode(readfile("IY_FE.iy"))
 					if json.prefix ~= nil then prefix = json.prefix else prefix = ';' end
 					if json.StayOpen ~= nil then StayOpen = json.StayOpen else StayOpen = false end
-					if json.keepCN ~= nil then KeepInfYield = json.keepCN else KeepInfYield = true end
+					if json.keepIY ~= nil then KeepInfYield = json.keepIY else KeepInfYield = true end
 					if json.espTransparency ~= nil then espTransparency = json.espTransparency else espTransparency = 0.3 end
 					if json.logsEnabled ~= nil then logsEnabled = json.logsEnabled else logsEnabled = false end
 					if json.jLogsEnabled ~= nil then jLogsEnabled = json.jLogsEnabled else jLogsEnabled = false end
@@ -2845,19 +2845,19 @@ function saves()
 					jsonAttempts = jsonAttempts + 1
 					warn("Save Json Error:", response)
 					warn("Overwriting Save File")
-					writefileCooldown("CN_FE.CN", defaults)
+					writefileCooldown("IY_FE.iy", defaults)
 					wait()
 					saves()
 				end
 			else
-				writefileCooldown("CN_FE.CN", defaults)
+				writefileCooldown("IY_FE.iy", defaults)
 				wait()
 				saves()
 			end
 		else
-			writefileCooldown("CN_FE.CN", defaults)
+			writefileCooldown("IY_FE.iy", defaults)
 			wait()
-			if pcall(function() readfile("CN_FE.CN") end) then
+			if pcall(function() readfile("IY_FE.iy") end) then
 				saves()
 			else
 				nosaves = true
@@ -3037,7 +3037,7 @@ function updatesaves()
 		local update = {
 			prefix = prefix;
 			StayOpen = StayOpen;
-			keepCN = KeepInfYield;
+			keepIY = KeepInfYield;
 			espTransparency = espTransparency;
 			logsEnabled = logsEnabled;
 			jLogsEnabled = jLogsEnabled;
@@ -3053,7 +3053,7 @@ function updatesaves()
 			currentScroll = {currentScroll.R,currentScroll.G,currentScroll.B};
 			eventBinds = eventEditor.SaveData()
 		}
-		writefileCooldown("CN_FE.CN", HttpService:JSONEncode(update))
+		writefileCooldown("IY_FE.iy", HttpService:JSONEncode(update))
 	end
 end
 
@@ -3281,7 +3281,7 @@ function CreateJoinLabel(plr,ID)
 	info2.Text = string.gsub(info2.Text, "Loading...",splitDates[2].."/"..splitDates[3].."/"..splitDates[1])
 end
 
-CNMouse.KeyDown:Connect(function(Key)
+IYMouse.KeyDown:Connect(function(Key)
 	if (Key==prefix) then
 		Cmdbar:CaptureFocus()
 		spawn(function()
@@ -3395,7 +3395,7 @@ ColorsButton.MouseButton1Click:Connect(function()
 				local greenInput = pickerFrame.Green.Input
 				local blueInput = pickerFrame.Blue.Input
 
-				local mouse = CNMouse
+				local mouse = IYMouse
 
 				local hue,sat,val = 0,0,1
 				local red,green,blue = 1,1,1
@@ -4018,20 +4018,20 @@ local ClickSelect = nil
 function selectPart()
 	ToPartFrame:TweenPosition(UDim2.new(0.5, -180, 0, 335), "InOut", "Quart", 0.5, true, nil)
 	local function HighlightPart()
-		if selected.Adornee ~= CNMouse.Target then
-			selectionBox.Adornee = CNMouse.Target
+		if selected.Adornee ~= IYMouse.Target then
+			selectionBox.Adornee = IYMouse.Target
 		else
 			selectionBox.Adornee = nil
 		end
 	end
-	ActivateHighlight = CNMouse.Move:Connect(HighlightPart)
+	ActivateHighlight = IYMouse.Move:Connect(HighlightPart)
 	local function SelectPart()
-		if CNMouse.Target ~= nil then
-			selected.Adornee = CNMouse.Target
-			Path.Text = getHierarchy(CNMouse.Target)
+		if IYMouse.Target ~= nil then
+			selected.Adornee = IYMouse.Target
+			Path.Text = getHierarchy(IYMouse.Target)
 		end
 	end
-	ClickSelect = CNMouse.Button1Down:Connect(SelectPart)
+	ClickSelect = IYMouse.Button1Down:Connect(SelectPart)
 end
 
 Part.MouseButton1Click:Connect(function()
@@ -4359,11 +4359,11 @@ CMDs[#CMDs + 1] = {NAME = 'hideguis', DESC = 'Hides any GUIs in PlayerGui'}
 CMDs[#CMDs + 1] = {NAME = 'unhideguis', DESC = 'Undoes hideguis'}
 CMDs[#CMDs + 1] = {NAME = 'guidelete', DESC = 'Enables backspace to delete GUI'}
 CMDs[#CMDs + 1] = {NAME = 'unguidelete / noguidelete', DESC = 'Disables guidelete'}
-CMDs[#CMDs + 1] = {NAME = 'hideCN', DESC = 'Hides the main CN GUI'}
-CMDs[#CMDs + 1] = {NAME = 'showCN / unhideCN', DESC = 'Shows CN again'}
-CMDs[#CMDs + 1] = {NAME = 'keepCN', DESC = 'Auto execute CN when you teleport through servers'}
-CMDs[#CMDs + 1] = {NAME = 'unkeepCN', DESC = 'Disable keepCN'}
-CMDs[#CMDs + 1] = {NAME = 'togglekeepCN', DESC = 'Toggle keepCN'}
+CMDs[#CMDs + 1] = {NAME = 'hideiy', DESC = 'Hides the main IY GUI'}
+CMDs[#CMDs + 1] = {NAME = 'showiy / unhideiy', DESC = 'Shows IY again'}
+CMDs[#CMDs + 1] = {NAME = 'keepiy', DESC = 'Auto execute IY when you teleport through servers'}
+CMDs[#CMDs + 1] = {NAME = 'unkeepiy', DESC = 'Disable keepiy'}
+CMDs[#CMDs + 1] = {NAME = 'togglekeepiy', DESC = 'Toggle keepiy'}
 CMDs[#CMDs + 1] = {NAME = 'savegame / saveplace', DESC = 'Uses saveinstance to save the game'}
 CMDs[#CMDs + 1] = {NAME = 'clearerror', DESC = 'Clears the annoying box and blur when a game kicks you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantikick / antikick (CLIENT)', DESC = 'Prevents localscripts from kicking you'}
@@ -4750,7 +4750,7 @@ IndexContents("", true)
 
 function checkTT()
 	local t
-	local guisAtPosition = COREGUI:GetGuiObjectsAtPosition(CNMouse.X, CNMouse.Y)
+	local guisAtPosition = COREGUI:GetGuiObjectsAtPosition(IYMouse.X, IYMouse.Y)
 
 	for _, gui in pairs(guisAtPosition) do
 		if gui.Parent == CMDsF then
@@ -4759,16 +4759,16 @@ function checkTT()
 	end
 
 	if t ~= nil and t:GetAttribute("Title") ~= nil then
-		local x = CNMouse.X
-		local y = CNMouse.Y
+		local x = IYMouse.X
+		local y = IYMouse.Y
 		local xP
 		local yP
-		if CNMouse.X > 200 then
+		if IYMouse.X > 200 then
 			xP = x - 201
 		else
 			xP = x + 21
 		end
-		if CNMouse.Y > (CNMouse.ViewSizeY-96) then
+		if IYMouse.Y > (IYMouse.ViewSizeY-96) then
 			yP = y - 97
 		else
 			yP = y
@@ -4968,7 +4968,7 @@ function execCmd(cmdStr,speaker,store)
 				if infTimes then
 					while lastBreakTime < cmdStartTime do
 						local success,err = pcall(cmd.FUNC,args, speaker)
-						if not success and _G.CN_DEBUG then
+						if not success and _G.IY_DEBUG then
 							warn("Command Error:", cmdName, err)
 						end
 						wait(cmdDelay)
@@ -4979,7 +4979,7 @@ function execCmd(cmdStr,speaker,store)
 						local success,err = pcall(function()
 							cmd.FUNC(args, speaker)
 						end)
-						if not success and _G.CN_DEBUG then
+						if not success and _G.IY_DEBUG then
 							warn("Command Error:", cmdName, err)
 						end
 						if cmdDelay ~= 0 then wait(cmdDelay) end
@@ -5065,7 +5065,7 @@ local WorldToScreen = function(Object)
 end
 
 local MousePositionToVector2 = function()
-	return Vector2.new(CNMouse.X, CNMouse.Y)
+	return Vector2.new(IYMouse.X, IYMouse.Y)
 end
 
 local GetClosestPlayerFromCursor = function()
@@ -6056,7 +6056,7 @@ local function clicktpFunc()
 		local hipHeight = humanoid and humanoid.HipHeight > 0 and (humanoid.HipHeight + 1)
 		local rootPart = getRoot(character)
 		local rootPartPosition = rootPart.Position
-		local hitPosition = CNMouse.Hit.Position
+		local hitPosition = IYMouse.Hit.Position
 		local newCFrame = CFrame.new(
 			hitPosition, 
 			Vector3.new(rootPartPosition.X, hitPosition.Y, rootPartPosition.Z)
@@ -6066,7 +6066,7 @@ local function clicktpFunc()
 	end)
 end
 
-CNMouse.Button1Down:Connect(function()
+IYMouse.Button1Down:Connect(function()
 	for i,v in pairs(binds) do
 		if v.COMMAND == 'clicktp' then
 			local input = v.KEY
@@ -6080,11 +6080,11 @@ CNMouse.Button1Down:Connect(function()
 		elseif v.COMMAND == 'clickdel' then
 			local input = v.KEY
 			if input == 'RightClick' and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2) then
-				pcall(function() CNMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			elseif input == 'LeftClick' and UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) then
-				pcall(function() CNMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			elseif UserInputService:IsKeyDown(Enum.KeyCode[input:sub(14)]) then
-				pcall(function() CNMouse.Target:Destroy() end)
+				pcall(function() IYMouse.Target:Destroy() end)
 			end
 		end
 	end
@@ -6093,17 +6093,17 @@ end)
 PluginsGUI = PluginEditor.background
 
 function addPlugin(name)
-	if name:lower() == 'plugin file name' or name:lower() == 'CN_fe.CN' or name == 'CN_fe' then
+	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
 		notify('Plugin Error','Please enter a valid plugin')
 	else
 		local file
 		local fileName
-		if name:sub(-3) == '.CN' then
+		if name:sub(-3) == '.iy' then
 			pcall(function() file = readfile(name) end)
 			fileName = name
 		else
-			pcall(function() file = readfile(name..'.CN') end)
-			fileName = name..'.CN'
+			pcall(function() file = readfile(name..'.iy') end)
+			fileName = name..'.iy'
 		end
 		if file then
 			if not FindInTable(PluginsTable, fileName) then
@@ -6121,8 +6121,8 @@ function addPlugin(name)
 end
 
 function deletePlugin(name)
-	local pName = name..'.CN'
-	if name:sub(-3) == '.CN' then
+	local pName = name..'.iy'
+	if name:sub(-3) == '.iy' then
 		pName = name
 	end
 	for i = #cmds,1,-1 do
@@ -6290,7 +6290,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if KeepInfYield and (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeCN/infiniteyield/master/source'))()")
+		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()")
 	end
 end)
 
@@ -6359,7 +6359,7 @@ addcmd('discord', {'support', 'help'}, function(args, speaker)
 	end
 end)
 
-addcmd('keepCN', {}, function(args, speaker)
+addcmd('keepiy', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = true
 		updatesaves()
@@ -6368,7 +6368,7 @@ addcmd('keepCN', {}, function(args, speaker)
 	end
 end)
 
-addcmd('unkeepCN', {}, function(args, speaker)
+addcmd('unkeepiy', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = false
 		updatesaves()
@@ -6377,7 +6377,7 @@ addcmd('unkeepCN', {}, function(args, speaker)
 	end
 end)
 
-addcmd('toggleunkeepCN', {}, function(args, speaker)
+addcmd('toggleunkeepiy', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = not KeepInfYield
 		updatesaves()
@@ -6866,11 +6866,11 @@ end)
 
 FLYING = false
 QEfly = true
-CNflyspeed = 1
+iyflyspeed = 1
 vehicleflyspeed = 1
 function sFLY(vfly)
 	repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-	repeat wait() until CNMouse
+	repeat wait() until IYMouse
 	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
 
 	local T = getRoot(Players.LocalPlayer.Character)
@@ -6919,23 +6919,23 @@ function sFLY(vfly)
 			end
 		end)
 	end
-	flyKeyDown = CNMouse.KeyDown:Connect(function(KEY)
+	flyKeyDown = IYMouse.KeyDown:Connect(function(KEY)
 		if KEY:lower() == 'w' then
-			CONTROL.F = (vfly and vehicleflyspeed or CNflyspeed)
+			CONTROL.F = (vfly and vehicleflyspeed or iyflyspeed)
 		elseif KEY:lower() == 's' then
-			CONTROL.B = - (vfly and vehicleflyspeed or CNflyspeed)
+			CONTROL.B = - (vfly and vehicleflyspeed or iyflyspeed)
 		elseif KEY:lower() == 'a' then
-			CONTROL.L = - (vfly and vehicleflyspeed or CNflyspeed)
+			CONTROL.L = - (vfly and vehicleflyspeed or iyflyspeed)
 		elseif KEY:lower() == 'd' then 
-			CONTROL.R = (vfly and vehicleflyspeed or CNflyspeed)
+			CONTROL.R = (vfly and vehicleflyspeed or iyflyspeed)
 		elseif QEfly and KEY:lower() == 'e' then
-			CONTROL.Q = (vfly and vehicleflyspeed or CNflyspeed)*2
+			CONTROL.Q = (vfly and vehicleflyspeed or iyflyspeed)*2
 		elseif QEfly and KEY:lower() == 'q' then
-			CONTROL.E = -(vfly and vehicleflyspeed or CNflyspeed)*2
+			CONTROL.E = -(vfly and vehicleflyspeed or iyflyspeed)*2
 		end
 		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
 	end)
-	flyKeyUp = CNMouse.KeyUp:Connect(function(KEY)
+	flyKeyUp = IYMouse.KeyUp:Connect(function(KEY)
 		if KEY:lower() == 'w' then
 			CONTROL.F = 0
 		elseif KEY:lower() == 's' then
@@ -7034,16 +7034,16 @@ local mobilefly = function(speaker, vfly)
 
 			local direction = controlModule:GetMoveVector()
 			if direction.X > 0 then
-				VelocityHandler.Velocity = VelocityHandler.Velocity + camera.CFrame.RightVector * (direction.X * ((vfly and vehicleflyspeed or CNflyspeed) * 50))
+				VelocityHandler.Velocity = VelocityHandler.Velocity + camera.CFrame.RightVector * (direction.X * ((vfly and vehicleflyspeed or iyflyspeed) * 50))
 			end
 			if direction.X < 0 then
-				VelocityHandler.Velocity = VelocityHandler.Velocity + camera.CFrame.RightVector * (direction.X * ((vfly and vehicleflyspeed or CNflyspeed) * 50))
+				VelocityHandler.Velocity = VelocityHandler.Velocity + camera.CFrame.RightVector * (direction.X * ((vfly and vehicleflyspeed or iyflyspeed) * 50))
 			end
 			if direction.Z > 0 then
-				VelocityHandler.Velocity = VelocityHandler.Velocity - camera.CFrame.LookVector * (direction.Z * ((vfly and vehicleflyspeed or CNflyspeed) * 50))
+				VelocityHandler.Velocity = VelocityHandler.Velocity - camera.CFrame.LookVector * (direction.Z * ((vfly and vehicleflyspeed or iyflyspeed) * 50))
 			end
 			if direction.Z < 0 then
-				VelocityHandler.Velocity = VelocityHandler.Velocity - camera.CFrame.LookVector * (direction.Z * ((vfly and vehicleflyspeed or CNflyspeed) * 50))
+				VelocityHandler.Velocity = VelocityHandler.Velocity - camera.CFrame.LookVector * (direction.Z * ((vfly and vehicleflyspeed or iyflyspeed) * 50))
 			end
 		end
 	end)
@@ -7058,14 +7058,14 @@ addcmd('fly',{},function(args, speaker)
 		mobilefly(speaker)
 	end
 	if args[1] and isNumber(args[1]) then
-		CNflyspeed = args[1]
+		iyflyspeed = args[1]
 	end
 end)
 
 addcmd('flyspeed',{'flysp'},function(args, speaker)
 	local speed = args[1] or 1
 	if isNumber(speed) then
-		CNflyspeed = speed
+		iyflyspeed = speed
 	end
 end)
 
@@ -7169,22 +7169,22 @@ addcmd('float', {'platform'},function(args, speaker)
 			local FloatValue = -3.1
 			Float.CFrame = getRoot(pchar).CFrame * CFrame.new(0,FloatValue,0)
 			notify('Float','Float Enabled (Q = down & E = up)')
-			qUp = CNMouse.KeyUp:Connect(function(KEY)
+			qUp = IYMouse.KeyUp:Connect(function(KEY)
 				if KEY == 'q' then
 					FloatValue = FloatValue + 0.5
 				end
 			end)
-			eUp = CNMouse.KeyUp:Connect(function(KEY)
+			eUp = IYMouse.KeyUp:Connect(function(KEY)
 				if KEY == 'e' then
 					FloatValue = FloatValue - 0.5
 				end
 			end)
-			qDown = CNMouse.KeyDown:Connect(function(KEY)
+			qDown = IYMouse.KeyDown:Connect(function(KEY)
 				if KEY == 'q' then
 					FloatValue = FloatValue - 0.5
 				end
 			end)
-			eDown = CNMouse.KeyDown:Connect(function(KEY)
+			eDown = IYMouse.KeyDown:Connect(function(KEY)
 				if KEY == 'e' then
 					FloatValue = FloatValue + 0.5
 				end
@@ -7591,7 +7591,7 @@ end)
 
 function deleteGuisAtPos()
 	pcall(function()
-		local guisAtPosition = Players.LocalPlayer.PlayerGui:GetGuiObjectsAtPosition(CNMouse.X, CNMouse.Y)
+		local guisAtPosition = Players.LocalPlayer.PlayerGui:GetGuiObjectsAtPosition(IYMouse.X, IYMouse.Y)
 		for _, gui in pairs(guisAtPosition) do
 			if gui.Visible == true then
 				gui:Destroy()
@@ -7618,7 +7618,7 @@ addcmd('unguidelete',{'noguidelete'},function(args, speaker)
 end)
 
 local wasStayOpen = StayOpen
-addcmd('hideCN',{},function(args, speaker)
+addcmd('hideiy',{},function(args, speaker)
 	isHidden = true
 	wasStayOpen = StayOpen
 	if StayOpen == true then
@@ -7627,10 +7627,10 @@ addcmd('hideCN',{},function(args, speaker)
 	end
 	minimizeNum = 0
 	minimizeHolder()
-	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('CN Hidden','You can press the prefix key to access the command bar') end
+	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('IY Hidden','You can press the prefix key to access the command bar') end
 end)
 
-addcmd('showCN',{'unhideCN'},function(args, speaker)
+addcmd('showiy',{'unhideiy'},function(args, speaker)
 	isHidden = false
 	minimizeNum = -20
 	if wasStayOpen then
@@ -9897,7 +9897,7 @@ addcmd('tptool', {'teleporttool'}, function(args, speaker)
 		if not Char or not HRP then
 			return warn("Failed to find HumanoidRootPart")
 		end
-		HRP.CFrame = CFrame.new(CNMouse.Hit.X, CNMouse.Hit.Y + 3, CNMouse.Hit.Z, select(4, HRP.CFrame:components()))
+		HRP.CFrame = CFrame.new(IYMouse.Hit.X, IYMouse.Hit.Y + 3, IYMouse.Hit.Z, select(4, HRP.CFrame:components()))
 	end)
 end)
 
@@ -11859,7 +11859,7 @@ addcmd('hovername',{},function(args, speaker)
 	nbSelection.Color3 = Color3.new(1, 1, 1)
 	local function updateNameBox()
 		local t
-		local target = CNMouse.Target
+		local target = IYMouse.Target
 
 		if target then
 			local humanoid = target.Parent:FindFirstChildOfClass("Humanoid") or target.Parent.Parent:FindFirstChildOfClass("Humanoid")
@@ -11869,11 +11869,11 @@ addcmd('hovername',{},function(args, speaker)
 		end
 
 		if t ~= nil then
-			local x = CNMouse.X
-			local y = CNMouse.Y
+			local x = IYMouse.X
+			local y = IYMouse.Y
 			local xP
 			local yP
-			if CNMouse.X > 200 then
+			if IYMouse.X > 200 then
 				xP = x - 205
 				nameBox.TextXAlignment = Enum.TextXAlignment.Right
 			else
@@ -11891,7 +11891,7 @@ addcmd('hovername',{},function(args, speaker)
 			nbSelection.Adornee = nil
 		end
 	end
-	nbUpdateFunc = CNMouse.Move:Connect(updateNameBox)
+	nbUpdateFunc = IYMouse.Move:Connect(updateNameBox)
 end)
 
 addcmd('unhovername',{'nohovername'},function(args, speaker)
@@ -12286,7 +12286,7 @@ if IsOnMobile then
 	QuickCapture.Position = UDim2.new(0.489, 0, 0, 0)
 	QuickCapture.Size = UDim2.new(0, 32, 0, 33)
 	QuickCapture.Font = Enum.Font.SourceSansBold
-	QuickCapture.Text = "CN"
+	QuickCapture.Text = "IY"
 	QuickCapture.TextColor3 = Color3.fromRGB(255, 255, 255)
 	QuickCapture.TextSize = 20.000
 	QuickCapture.TextWrapped = true
@@ -12418,11 +12418,11 @@ if aliases and #aliases > 0 then
 	refreshaliases()
 end
 
-CNMouse.Move:Connect(checkTT)
+IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
 	local success, latestVersionInfo = pcall(function() 
-		local versionJson = game:HttpGet('https://raw.githubusercontent.com/EdgeCN/infiniteyield/master/version')
+		local versionJson = game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version')
 		return HttpService:JSONDecode(versionJson)
 	end)
 
