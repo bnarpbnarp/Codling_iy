@@ -36,7 +36,6 @@ Button = Instance.new("Frame")
 On = Instance.new("TextButton")
 Positions = Instance.new("TextLabel")
 EventBind = Instance.new("TextLabel")
-Plugins = Instance.new("TextLabel")
 Example = Instance.new("TextButton")
 Notification = Instance.new("Frame")
 Title_2 = Instance.new("TextLabel")
@@ -97,7 +96,6 @@ Example_3 = Instance.new("Frame")
 Text_4 = Instance.new("TextLabel")
 Delete_4 = Instance.new("TextButton")
 Aliases = Instance.new("TextLabel")
-PluginsFrame = Instance.new("Frame")
 Close_4 = Instance.new("TextButton")
 Add_3 = Instance.new("TextButton")
 Holder_5 = Instance.new("ScrollingFrame")
@@ -117,7 +115,6 @@ PopupText_3 = Instance.new("TextLabel")
 Exit_3 = Instance.new("TextButton")
 ExitImage_3 = Instance.new("ImageLabel")
 AliasHint = Instance.new("TextLabel")
-PluginsHint = Instance.new("TextLabel")
 PositionsHint = Instance.new("TextLabel")
 ToPartFrame = Instance.new("Frame")
 background_4 = Instance.new("Frame")
@@ -461,12 +458,6 @@ EventBind.Position = UDim2.new(0, 5, 0, 205)
 EventBind.Size = UDim2.new(1, -10, 0, 25)
 EventBind.Name = "EventBinds"
 EventBind.Parent = SettingsHolder
-
-Plugins = makeSettingsButton("Manage Plugins","rbxassetid://5147695474",743)
-Plugins.Position = UDim2.new(0, 5, 0, 175)
-Plugins.Size = UDim2.new(1, -10, 0, 25)
-Plugins.Name = "Plugins"
-Plugins.Parent = SettingsHolder
 
 Example.Name = "Example"
 Example.Parent = Holder
@@ -1177,69 +1168,6 @@ Delete_4.ZIndex = 10
 table.insert(shade3,Delete_4)
 table.insert(text2,Delete_4)
 
-PluginsFrame.Name = "PluginsFrame"
-PluginsFrame.Parent = Settings
-PluginsFrame.Active = true
-PluginsFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
-PluginsFrame.BorderSizePixel = 0
-PluginsFrame.Position = UDim2.new(0, 0, 0, 175)
-PluginsFrame.Size = UDim2.new(0, 250, 0, 175)
-PluginsFrame.ZIndex = 10
-table.insert(shade1,PluginsFrame)
-
-Close_4.Name = "Close"
-Close_4.Parent = PluginsFrame
-Close_4.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-Close_4.BorderSizePixel = 0
-Close_4.Position = UDim2.new(0, 205, 0, 150)
-Close_4.Size = UDim2.new(0, 40, 0, 20)
-Close_4.Font = Enum.Font.SourceSans
-Close_4.TextSize = 14
-Close_4.Text = "Close"
-Close_4.TextColor3 = Color3.new(1, 1, 1)
-Close_4.ZIndex = 10
-table.insert(shade2,Close_4)
-table.insert(text1,Close_4)
-
-Add_3.Name = "Add"
-Add_3.Parent = PluginsFrame
-Add_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-Add_3.BorderSizePixel = 0
-Add_3.Position = UDim2.new(0, 5, 0, 150)
-Add_3.Size = UDim2.new(0, 40, 0, 20)
-Add_3.Font = Enum.Font.SourceSans
-Add_3.TextSize = 14
-Add_3.Text = "Add"
-Add_3.TextColor3 = Color3.new(1, 1, 1)
-Add_3.ZIndex = 10
-table.insert(shade2,Add_3)
-table.insert(text1,Add_3)
-
-Holder_5.Name = "Holder"
-Holder_5.Parent = PluginsFrame
-Holder_5.BackgroundTransparency = 1
-Holder_5.BorderSizePixel = 0
-Holder_5.Position = UDim2.new(0, 0, 0, 0)
-Holder_5.Selectable = false
-Holder_5.Size = UDim2.new(0, 250, 0, 145)
-Holder_5.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
-Holder_5.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Holder_5.CanvasSize = UDim2.new(0, 0, 0, 0)
-Holder_5.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Holder_5.ScrollBarThickness = 0
-Holder_5.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Holder_5.VerticalScrollBarInset = 'Always'
-Holder_5.ZIndex = 10
-
-Example_5.Name = "Example"
-Example_5.Parent = PluginsFrame
-Example_5.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-Example_5.BorderSizePixel = 0
-Example_5.Size = UDim2.new(0, 10, 0, 20)
-Example_5.Visible = false
-Example_5.ZIndex = 10
-table.insert(shade2,Example_5)
-
 Text_6.Name = "Text"
 Text_6.Parent = Example_5
 Text_6.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
@@ -1334,21 +1262,6 @@ FileName.ZIndex = 10
 table.insert(shade2,FileName)
 table.insert(text1,FileName)
 
-About.Name = "About"
-About.Parent = background_3
-About.BackgroundTransparency = 1
-About.BorderSizePixel = 0
-About.Position = UDim2.new(0, 17, 0, 10)
-About.Size = UDim2.new(0, 187, 0, 49)
-About.Font = Enum.Font.SourceSans
-About.TextSize = 14
-About.Text = "Plugins are .iy files and should be located in the 'workspace' folder of your exploit."
-About.TextColor3 = Color3.fromRGB(255, 255, 255)
-About.TextWrapped = true
-About.TextYAlignment = Enum.TextYAlignment.Top
-About.ZIndex = 10
-table.insert(text1,About)
-
 Directions_2.Name = "Directions"
 Directions_2.Parent = background_3
 Directions_2.BackgroundTransparency = 1
@@ -1371,18 +1284,6 @@ shadow_3.BorderSizePixel = 0
 shadow_3.Size = UDim2.new(0, 360, 0, 20)
 shadow_3.ZIndex = 10
 table.insert(shade2,shadow_3)
-
-PopupText_3.Name = "PopupText"
-PopupText_3.Parent = shadow_3
-PopupText_3.BackgroundTransparency = 1
-PopupText_3.Size = UDim2.new(1, 0, 0.95, 0)
-PopupText_3.ZIndex = 10
-PopupText_3.Font = Enum.Font.SourceSans
-PopupText_3.TextSize = 14
-PopupText_3.Text = "Add Plugins"
-PopupText_3.TextColor3 = Color3.new(1, 1, 1)
-PopupText_3.TextWrapped = true
-table.insert(text1,PopupText_3)
 
 Exit_3.Name = "Exit"
 Exit_3.Parent = shadow_3
@@ -1414,21 +1315,6 @@ AliasHint.TextStrokeColor3 = Color3.new(1, 1, 1)
 AliasHint.TextWrapped = true
 AliasHint.ZIndex = 10
 table.insert(text1,AliasHint)
-
-PluginsHint.Name = "PluginsHint"
-PluginsHint.Parent = PluginsFrame
-PluginsHint.BackgroundTransparency = 1
-PluginsHint.BorderSizePixel = 0
-PluginsHint.Position = UDim2.new(0, 25, 0, 40)
-PluginsHint.Size = UDim2.new(0, 200, 0, 50)
-PluginsHint.Font = Enum.Font.SourceSansItalic
-PluginsHint.TextSize = 16
-PluginsHint.Text = "Download plugins from the IY Discord (discord.gg/78ZuWSq)"
-PluginsHint.TextColor3 = Color3.new(1, 1, 1)
-PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
-PluginsHint.TextWrapped = true
-PluginsHint.ZIndex = 10
-table.insert(text1,PluginsHint)
 
 PositionsHint.Name = "PositionsHint"
 PositionsHint.Parent = PositionsFrame
@@ -2757,7 +2643,6 @@ defaultsettings = {
 	aliases = {};
 	binds = {};
 	WayPoints = {};
-	PluginsTable = {};
 	currentShade1 = {currentShade1.R,currentShade1.G,currentShade1.B};
 	currentShade2 = {currentShade2.R,currentShade2.G,currentShade2.B};
 	currentShade3 = {currentShade3.R,currentShade3.G,currentShade3.B};
@@ -2779,7 +2664,6 @@ useFactorySettings = function()
     aliases = {}
     binds = {}
     WayPoints = {}
-    PluginsTable = {}
 end
 
 local loadedEventData = nil
@@ -2800,7 +2684,6 @@ function saves()
 					if json.binds ~= nil then binds = (json.binds or {}) else binds = {} end
 					if json.spawnCmds ~= nil then spawnCmds = json.spawnCmds end
 					if json.WayPoints ~= nil then AllWaypoints = json.WayPoints else WayPoints = {} AllWaypoints = {} end
-					if json.PluginsTable ~= nil then PluginsTable = json.PluginsTable else PluginsTable = {} end
 					if json.currentShade1 ~= nil then currentShade1 = Color3.new(json.currentShade1[1],json.currentShade1[2],json.currentShade1[3]) end
 					if json.currentShade2 ~= nil then currentShade2 = Color3.new(json.currentShade2[1],json.currentShade2[2],json.currentShade2[3]) end
 					if json.currentShade3 ~= nil then currentShade3 = Color3.new(json.currentShade3[1],json.currentShade3[2],json.currentShade3[3]) end
@@ -3012,7 +2895,6 @@ function updatesaves()
 			aliases = aliases;
 			binds = binds or {};
 			WayPoints = AllWaypoints;
-			PluginsTable = PluginsTable;
 			currentShade1 = {currentShade1.R,currentShade1.G,currentShade1.B};
 			currentShade2 = {currentShade2.R,currentShade2.G,currentShade2.B};
 			currentShade3 = {currentShade3.R,currentShade3.G,currentShade3.B};
@@ -6057,202 +5939,6 @@ IYMouse.Button1Down:Connect(function()
 	end
 end)
 
-PluginsGUI = PluginEditor.background
-
-function addPlugin(name)
-	if name:lower() == 'plugin file name' or name:lower() == 'iy_fe.iy' or name == 'iy_fe' then
-		notify('Plugin Error','Please enter a valid plugin')
-	else
-		local file
-		local fileName
-		if name:sub(-3) == '.iy' then
-			pcall(function() file = readfile(name) end)
-			fileName = name
-		else
-			pcall(function() file = readfile(name..'.iy') end)
-			fileName = name..'.iy'
-		end
-		if file then
-			if not FindInTable(PluginsTable, fileName) then
-				table.insert(PluginsTable, fileName)
-				LoadPlugin(fileName)
-				refreshplugins()
-				pcall(eventEditor.Refresh)
-			else
-				notify('Plugin Error','This plugin is already added')
-			end
-		else
-			notify('Plugin Error','Cannot locate file "'..fileName..'". Is the file in the correct folder?')
-		end
-	end
-end
-
-function deletePlugin(name)
-	local pName = name..'.iy'
-	if name:sub(-3) == '.iy' then
-		pName = name
-	end
-	for i = #cmds,1,-1 do
-		if cmds[i].PLUGIN == pName then
-			table.remove(cmds, i)
-		end
-	end
-	for i,v in pairs(CMDsF:GetChildren()) do
-		if v.Name == 'PLUGIN_'..pName then
-			v:Destroy()
-		end
-	end
-	for i,v in pairs(PluginsTable) do
-		if v == pName then
-			table.remove(PluginsTable, i)
-			notify('Removed Plugin',pName..' was removed')
-		end
-	end
-	IndexContents('',true)
-	refreshplugins()
-end
-
-function refreshplugins(dontSave)
-	if #PluginsTable > 0 then
-		PluginsHint:Destroy()
-	end
-	if Holder_5 then
-		Holder_5:ClearAllChildren()
-		Holder_5.CanvasSize = UDim2.new(0, 0, 0, 10)
-		for i,v in pairs(PluginsTable) do
-			local pName = v
-			local YSize = 25
-			local Position = ((i * YSize) - YSize)
-			local newplugin = Example_5:Clone()
-			newplugin.Parent = Holder_5
-			newplugin.Visible = true
-			newplugin.Position = UDim2.new(0,0,0, Position + 5)
-			newplugin.Text.Text = pName
-			table.insert(shade2,newplugin)
-			table.insert(shade2,newplugin.Text)
-			table.insert(text1,newplugin.Text)
-			table.insert(shade3,newplugin.Text.Delete)
-			table.insert(text2,newplugin.Text.Delete)
-			Holder_5.CanvasSize = UDim2.new(0,0,0, Position + 30)
-			newplugin.Text.Delete.MouseButton1Click:Connect(function()
-				deletePlugin(pName)
-			end)
-		end
-		if not dontSave then
-			updatesaves()
-		end
-	end
-end
-
-local PluginCache
-function LoadPlugin(val,startup)
-	local plugin
-
-	function CatchedPluginLoad()
-		plugin = loadfile(val)()
-	end
-
-	function handlePluginError(plerror)
-		notify('Plugin Error','An error occurred with the plugin, "'..val..'" and it could not be loaded')
-		if FindInTable(PluginsTable,val) then
-			for i,v in pairs(PluginsTable) do
-				if v == val then
-					table.remove(PluginsTable,i)
-				end
-			end
-		end
-		updatesaves()
-
-		print("Original Error: "..tostring(plerror))
-		print("Plugin Error, stack traceback: "..tostring(debug.traceback()))
-
-		plugin = nil
-
-		return false
-	end
-
-	xpcall(CatchedPluginLoad, handlePluginError)
-
-	if plugin ~= nil then
-		if not startup then
-			notify('Loaded Plugin',"Name: "..plugin["PluginName"].."\n".."Description: "..plugin["PluginDescription"])
-		end
-		addcmdtext('',val)
-		addcmdtext(string.upper('--'..plugin["PluginName"]),val,plugin["PluginDescription"])
-		if plugin["Commands"] then
-			for i,v in pairs(plugin["Commands"]) do 
-				local cmdExt = ''
-				local cmdName = i
-				local function handleNames()
-					cmdName = i
-					if findCmd(cmdName..cmdExt) then
-						if isNumber(cmdExt) then
-							cmdExt = cmdExt+1
-						else
-							cmdExt = 1
-						end
-						handleNames()
-					else
-						cmdName = cmdName..cmdExt
-					end
-				end
-				handleNames()
-				addcmd(cmdName, v["Aliases"], v["Function"], val)
-				if v["ListName"] then
-					local newName = v.ListName
-					local cmdNames = {i,unpack(v.Aliases)}
-					for i,v in pairs(cmdNames) do
-						newName = newName:gsub(v,v..cmdExt)
-					end
-					addcmdtext(newName,val,v["Description"])
-				else
-					addcmdtext(cmdName,val,v["Description"])
-				end
-			end
-		end
-		IndexContents('',true)
-	elseif plugin == nil then
-		plugin = nil
-	end
-end
-
-function FindPlugins()
-	if PluginsTable ~= nil and type(PluginsTable) == "table" then
-		for i,v in pairs(PluginsTable) do
-			LoadPlugin(v,true)
-		end
-		refreshplugins(true)
-	end
-end
-
-AddPlugin.MouseButton1Click:Connect(function()
-	addPlugin(PluginsGUI.FileName.Text)
-end)
-
-Exit_3.MouseButton1Click:Connect(function()
-	PluginEditor:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-	FileName.Text = 'Plugin File Name'
-end)
-
-Add_3.MouseButton1Click:Connect(function()
-	PluginEditor:TweenPosition(UDim2.new(0.5, -180, 0, 310), "InOut", "Quart", 0.5, true, nil)
-end)
-
-Plugins.MouseButton1Click:Connect(function()
-	if writefileExploit() then
-		PluginsFrame:TweenPosition(UDim2.new(0, 0, 0, 0), "InOut", "Quart", 0.5, true, nil)
-		wait(0.5)
-		SettingsHolder.Visible = false
-	else
-		notify('Incompatible Exploit','Your exploit is unable to use plugins (missing read/writefile)')
-	end
-end)
-
-Close_4.MouseButton1Click:Connect(function()
-	SettingsHolder.Visible = true
-	PluginsFrame:TweenPosition(UDim2.new(0, 0, 0, 175), "InOut", "Quart", 0.5, true, nil)
-end)
-
 local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if KeepInfYield and (not TeleportCheck) and queueteleport then
@@ -7274,7 +6960,6 @@ addcmd('waypoints',{'positions'},function(args, speaker)
 	end
 	KeybindsFrame:TweenPosition(UDim2.new(0, 0, 0, 175), "InOut", "Quart", 0.5, true, nil)
 	AliasesFrame:TweenPosition(UDim2.new(0, 0, 0, 175), "InOut", "Quart", 0.5, true, nil)
-	PluginsFrame:TweenPosition(UDim2.new(0, 0, 0, 175), "InOut", "Quart", 0.5, true, nil)
 	PositionsFrame:TweenPosition(UDim2.new(0, 0, 0, 0), "InOut", "Quart", 0.5, true, nil)
 	wait(0.5)
 	SettingsHolder.Visible = false
@@ -12251,10 +11936,6 @@ updateColors(currentShade3,shade3)
 updateColors(currentText1,text1)
 updateColors(currentText2,text2)
 updateColors(currentScroll,scroll)
-
-if PluginsTable ~= nil or PluginsTable ~= {} then
-	FindPlugins(PluginsTable)
-end
 
 -- Events
 eventEditor.RegisterEvent("OnExecute")
