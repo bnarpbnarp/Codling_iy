@@ -17,7 +17,7 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-currentVersion = '1.0'
+currentVersion = '5.9.4'
 
 Holder = Instance.new("Frame")
 Title = Instance.new("TextLabel")
@@ -207,7 +207,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Codling v" .. currentVersion
+Title.Text = "Codling FE v" .. currentVersion
 
 do
 	local emoji = ({
@@ -1446,6 +1446,21 @@ AliasHint.TextStrokeColor3 = Color3.new(1, 1, 1)
 AliasHint.TextWrapped = true
 AliasHint.ZIndex = 10
 table.insert(text1,AliasHint)
+
+PluginsHint.Name = "PluginsHint"
+PluginsHint.Parent = PluginsFrame
+PluginsHint.BackgroundTransparency = 1
+PluginsHint.BorderSizePixel = 0
+PluginsHint.Position = UDim2.new(0, 25, 0, 40)
+PluginsHint.Size = UDim2.new(0, 200, 0, 50)
+PluginsHint.Font = Enum.Font.SourceSansItalic
+PluginsHint.TextSize = 16
+PluginsHint.Text = "sadly there is none right now"
+PluginsHint.TextColor3 = Color3.new(1, 1, 1)
+PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
+PluginsHint.TextWrapped = true
+PluginsHint.ZIndex = 10
+table.insert(text1,PluginsHint)
 
 PositionsHint.Name = "PositionsHint"
 PositionsHint.Parent = PositionsFrame
@@ -2717,8 +2732,11 @@ reference = (function()
 		{110,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Text",Parent={105},Position=UDim2.new(0,8,0,130),Size=UDim2.new(1,-8,0,16),Text="Example:",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,TextYAlignment=0,ZIndex=10,}},
 		{111,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={105},Position=UDim2.new(0,8,0,148),Size=UDim2.new(1,-8,0,16),Text="Setting up 'goto $1' on the OnChatted event will teleport you to any player that chats.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,TextYAlignment=0,ZIndex=10,}},
 		{112,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="Section",Parent={7},Size=UDim2.new(1,0,0,105),ZIndex=10,}},
-		{113,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Header",Parent={112},Position=UDim2.new(0,8,0,5),Size=UDim2.new(1,-8,0,20),Text="Get Further Help",TextColor3=Color3.new(1,1,1),TextSize=20,TextXAlignment=0,ZIndex=10,}},
-	})
+		{113,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Header",Parent={112},Position=UDim2.new(0,8,0,5),Size=UDim2.new(1,-8,0,20),Text="there is none right now",TextColor3=Color3.new(1,1,1),TextSize=20,TextXAlignment=0,ZIndex=10,}},
+		{114,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Text",Parent={112},Position=UDim2.new(0,8,0,30),Size=UDim2.new(1,-8,0,32),Text="there is none right now,  and read up on more documentation such as the Plugin API.",TextColor3=Color3.new(1,1,1),TextSize=14,TextWrapped=true,TextXAlignment=0,ZIndex=10,}},
+		{115,"Frame",{BackgroundColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),BorderSizePixel=0,Name="Line",Parent={112},Position=UDim2.new(0,10,1,-1),Size=UDim2.new(1,-20,0,1),Visible=false,ZIndex=10,}},
+		{116,"TextButton",{BackgroundColor3=Color3.new(0.48627451062202,0.61960786581039,0.85098040103912),BorderColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),Font=4,Name="InviteButton",Parent={112},Position=UDim2.new(0,5,0,75),Size=UDim2.new(1,-10,0,25),Text="there is none right now",TextColor3=Color3.new(0.1803921610117,0.1803921610117,0.1843137294054),TextSize=16,ZIndex=10,}},
+	})(h
 	for i,v in pairs(main.Content.List:GetDescendants()) do
 		if v:IsA("TextLabel") then
 			table.insert(text1,v)
@@ -2732,7 +2750,19 @@ reference = (function()
 		main:TweenPosition(UDim2.new(0.5,-250,0,-500), "InOut", "Quart", 0.5, true, nil)
 	end)
 	local inviteButton = main:FindFirstChild("InviteButton",true)
-
+	local lastPress = nil
+	inviteButton.MouseButton1Click:Connect(function()
+		if everyClipboard then
+			toClipboard("there is none right now")
+			inviteButton.Text = "Copied"
+		else
+			inviteButton.Text = "No Clipboard Function, type out the link"
+		end
+		local pressTime = tick()
+		lastPress = pressTime
+		wait(2)
+		if lastPress ~= pressTime then return end
+		inviteButton.Text = "there is none right now"
 	end)
 	dragGUI(main)
 	main.Parent = PARENT
@@ -6304,6 +6334,30 @@ addcmd('clraliases',{},function(args, speaker)
 	refreshaliases()
 end)
 
+addcmd('no', {'no', 'no'}, function(args, speaker)
+	if everyClipboard then
+		toClipboard('there is none right now')
+		notify('there is none right now', 'there is none right now')
+	else
+		notify('there is none right now', 'there is none right now')
+	end
+	if httprequest then
+		httprequest({
+			Url = 'http://127.0.0.1:6463/rpc?v=1',
+			Method = 'POST',
+			Headers = {
+				['Content-Type'] = 'application/json',
+				Origin = 'https://discord.com'
+			},
+			Body = HttpService:JSONEncode({
+				cmd = 'INVITE_BROWSER',
+				nonce = HttpService:GenerateGUID(false),
+				args = {code = 'dYHag43eeU'}
+			})
+		})
+	end
+end)
+
 addcmd('keepiy', {}, function(args, speaker)
 	if queueteleport then
 		KeepInfYield = true
@@ -9354,7 +9408,7 @@ addcmd("dance", {}, function(args, speaker)
 	pcall(execCmd, "undance")
 	local dances = {"27789359", "30196114", "248263260", "45834924", "33796059", "28488254", "52155728"}
 	if r15(speaker) then
-		dances = {"10147916560", "10147919199"}
+		dances = {"3333432454", "4555808220", "4049037604", "4555782893", "10214311282", "10714010337", "10713981723", "10714372526", "10714076981", "10714392151", "11444443576"}
 	end
 	local animation = Instance.new("Animation")
 	animation.AnimationId = "rbxassetid://" .. dances[math.random(1, #dances)]
@@ -12364,6 +12418,102 @@ if aliases and #aliases > 0 then
 end
 
 IYMouse.Move:Connect(checkTT)
+
+task.spawn(function()
+	local success, latestVersionInfo = pcall(function() 
+		local versionJson = game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/version')
+		return HttpService:JSONDecode(versionJson)
+	end)
+
+	if success then
+		if currentVersion ~= latestVersionInfo.Version then
+			notify('Outdated','Get the new version at infyiff.github.io')
+		end
+
+		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
+			local AnnGUI = Instance.new("Frame")
+			local background = Instance.new("Frame")
+			local TextBox = Instance.new("TextLabel")
+			local shadow = Instance.new("Frame")
+			local PopupText = Instance.new("TextLabel")
+			local Exit = Instance.new("TextButton")
+			local ExitImage = Instance.new("ImageLabel")
+
+			AnnGUI.Name = randomString()
+			AnnGUI.Parent = PARENT
+			AnnGUI.Active = true
+			AnnGUI.BackgroundTransparency = 1
+			AnnGUI.Position = UDim2.new(0.5, -180, 0, -500)
+			AnnGUI.Size = UDim2.new(0, 360, 0, 20)
+			AnnGUI.ZIndex = 10
+
+			background.Name = "background"
+			background.Parent = AnnGUI
+			background.Active = true
+			background.BackgroundColor3 = currentShade1
+			background.BorderSizePixel = 0
+			background.Position = UDim2.new(0, 0, 0, 20)
+			background.Size = UDim2.new(0, 360, 0, 150)
+			background.ZIndex = 10
+
+			TextBox.Parent = background
+			TextBox.BackgroundTransparency = 1
+			TextBox.Position = UDim2.new(0, 5, 0, 5)
+			TextBox.Size = UDim2.new(0, 350, 0, 140)
+			TextBox.Font = Enum.Font.SourceSans
+			TextBox.TextSize = 18
+			TextBox.TextWrapped = true
+			TextBox.Text = Announcement
+			TextBox.TextColor3 = currentText1
+			TextBox.TextXAlignment = Enum.TextXAlignment.Left
+			TextBox.TextYAlignment = Enum.TextYAlignment.Top
+			TextBox.ZIndex = 10
+
+			shadow.Name = "shadow"
+			shadow.Parent = AnnGUI
+			shadow.BackgroundColor3 = currentShade2
+			shadow.BorderSizePixel = 0
+			shadow.Size = UDim2.new(0, 360, 0, 20)
+			shadow.ZIndex = 10
+
+			PopupText.Name = "PopupText"
+			PopupText.Parent = shadow
+			PopupText.BackgroundTransparency = 1
+			PopupText.Size = UDim2.new(1, 0, 0.95, 0)
+			PopupText.ZIndex = 10
+			PopupText.Font = Enum.Font.SourceSans
+			PopupText.TextSize = 14
+			PopupText.Text = "Server Announcement"
+			PopupText.TextColor3 = currentText1
+			PopupText.TextWrapped = true
+
+			Exit.Name = "Exit"
+			Exit.Parent = shadow
+			Exit.BackgroundTransparency = 1
+			Exit.Position = UDim2.new(1, -20, 0, 0)
+			Exit.Size = UDim2.new(0, 20, 0, 20)
+			Exit.Text = ""
+			Exit.ZIndex = 10
+
+			ExitImage.Parent = Exit
+			ExitImage.BackgroundColor3 = Color3.new(1, 1, 1)
+			ExitImage.BackgroundTransparency = 1
+			ExitImage.Position = UDim2.new(0, 5, 0, 5)
+			ExitImage.Size = UDim2.new(0, 10, 0, 10)
+			ExitImage.Image = "rbxassetid://5054663650"
+			ExitImage.ZIndex = 10
+
+			wait(1)
+			AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
+
+			Exit.MouseButton1Click:Connect(function()
+				AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
+				wait(0.6)
+				AnnGUI:Destroy()
+			end)
+		end
+	end
+end)
 
 task.spawn(function()
 	wait()
