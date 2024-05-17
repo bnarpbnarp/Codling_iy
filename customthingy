@@ -587,7 +587,7 @@ Credits.Position = UDim2.new(0, 0, 0.9, 30)
 Credits.Size = UDim2.new(0, 250, 0, 20)
 Credits.Font = Enum.Font.SourceSansLight
 Credits.FontSize = Enum.FontSize.Size18
-Credits.Text = "Bnarpy // Codling"
+Credits.Text = "By Bnarpy"
 Credits.TextColor3 = Color3.new(1, 1, 1)
 Credits.ZIndex = 10
 
@@ -11881,13 +11881,13 @@ IYMouse.Move:Connect(checkTT)
 
 task.spawn(function()
 	wait()
-	Credits:TweenPosition(UDim2.new(0, 0, 0.9, 0), "Out", "Quart", 0.2)
+	Credits:TweenPosition(UDim2.new(-0.3, 1, 0, 1), "Out", "Quart", 0.2)
 	Logo:TweenSizeAndPosition(UDim2.new(0, 175, 0, 175), UDim2.new(0, 37, 0, 45), "Out", "Quart", 0.3)
 	wait(1)
 	local OutInfo = TweenInfo.new(1.6809, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, false, 0)
 	TweenService:Create(Logo, OutInfo, {ImageTransparency = 1}):Play()
 	TweenService:Create(IntroBackground, OutInfo, {BackgroundTransparency = 1}):Play()
-	Credits:TweenPosition(UDim2.new(0, 0, 0.9, 30), "Out", "Quart", 0.2)
+	Credits:TweenPosition(UDim2.new(-0.3, 1, 0, 1), "Out", "Quart", 0.2)
 	wait(0.2)
 	Logo:Destroy()
 	Credits:Destroy()
