@@ -17,7 +17,7 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-currentVersion = '1.2'
+currentVersion = '1.3'
 
 Holder = Instance.new("Frame")
 Title = Instance.new("TextLabel")
@@ -102,11 +102,9 @@ Holder_5 = Instance.new("ScrollingFrame")
 Example_5 = Instance.new("Frame")
 Text_6 = Instance.new("TextLabel")
 Delete_7 = Instance.new("TextButton")
-PluginEditor = Instance.new("Frame")
 background_3 = Instance.new("Frame")
 Dark_2 = Instance.new("Frame")
 Img = Instance.new("ImageButton")
-AddPlugin = Instance.new("TextButton")
 FileName = Instance.new("TextBox")
 About = Instance.new("TextLabel")
 Directions_2 = Instance.new("TextLabel")
@@ -1197,110 +1195,6 @@ Delete_7.ZIndex = 10
 table.insert(shade3,Delete_7)
 table.insert(text2,Delete_7)
 
-PluginEditor.Name = randomString()
-PluginEditor.Parent = PARENT
-PluginEditor.BorderSizePixel = 0
-PluginEditor.Active = true
-PluginEditor.BackgroundTransparency = 1
-PluginEditor.Position = UDim2.new(0.5, -180, 0, -500)
-PluginEditor.Size = UDim2.new(0, 360, 0, 20)
-PluginEditor.ZIndex = 10
-
-background_3.Name = "background"
-background_3.Parent = PluginEditor
-background_3.Active = true
-background_3.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
-background_3.BorderSizePixel = 0
-background_3.Position = UDim2.new(0, 0, 0, 20)
-background_3.Size = UDim2.new(0, 360, 0, 160)
-background_3.ZIndex = 10
-table.insert(shade1,background_3)
-
-Dark_2.Name = "Dark"
-Dark_2.Parent = background_3
-Dark_2.Active = true
-Dark_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-Dark_2.BorderSizePixel = 0
-Dark_2.Position = UDim2.new(0, 222, 0, 0)
-Dark_2.Size = UDim2.new(0, 2, 0, 160)
-Dark_2.ZIndex = 10
-table.insert(shade2,Dark_2)
-
-Img.Name = "Img"
-Img.Parent = background_3
-Img.BackgroundTransparency = 1
-Img.Position = UDim2.new(0, 242, 0, 3)
-Img.Size = UDim2.new(0, 100, 0, 95)
-Img.Image = "rbxassetid://4113050383"
-Img.ZIndex = 10
-
-AddPlugin.Name = "AddPlugin"
-AddPlugin.Parent = background_3
-AddPlugin.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-AddPlugin.BorderSizePixel = 0
-AddPlugin.Position = UDim2.new(0, 235, 0, 100)
-AddPlugin.Size = UDim2.new(0, 115, 0, 50)
-AddPlugin.Font = Enum.Font.SourceSans
-AddPlugin.TextSize = 14
-AddPlugin.Text = "Add Plugin"
-AddPlugin.TextColor3 = Color3.new(1, 1, 1)
-AddPlugin.ZIndex = 10
-table.insert(shade2,AddPlugin)
-table.insert(text1,AddPlugin)
-
-FileName.Name = "FileName"
-FileName.Parent = background_3
-FileName.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-FileName.BorderSizePixel = 0
-FileName.Position = UDim2.new(0.028, 0, 0.625, 0)
-FileName.Size = UDim2.new(0, 200, 0, 50)
-FileName.Font = Enum.Font.SourceSans
-FileName.TextSize = 14
-FileName.Text = "Plugin File Name"
-FileName.TextColor3 = Color3.new(1, 1, 1)
-FileName.ZIndex = 10
-table.insert(shade2,FileName)
-table.insert(text1,FileName)
-
-Directions_2.Name = "Directions"
-Directions_2.Parent = background_3
-Directions_2.BackgroundTransparency = 1
-Directions_2.BorderSizePixel = 0
-Directions_2.Position = UDim2.new(0, 17, 0, 60)
-Directions_2.Size = UDim2.new(0, 187, 0, 49)
-Directions_2.Font = Enum.Font.SourceSans
-Directions_2.TextSize = 14
-Directions_2.Text = "Type the name of the plugin file you want to add below."
-Directions_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Directions_2.TextWrapped = true
-Directions_2.TextYAlignment = Enum.TextYAlignment.Top
-Directions_2.ZIndex = 10
-table.insert(text1,Directions_2)
-
-shadow_3.Name = "shadow"
-shadow_3.Parent = PluginEditor
-shadow_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
-shadow_3.BorderSizePixel = 0
-shadow_3.Size = UDim2.new(0, 360, 0, 20)
-shadow_3.ZIndex = 10
-table.insert(shade2,shadow_3)
-
-Exit_3.Name = "Exit"
-Exit_3.Parent = shadow_3
-Exit_3.BackgroundTransparency = 1
-Exit_3.Position = UDim2.new(1, -20, 0, 0)
-Exit_3.Size = UDim2.new(0, 20, 0, 20)
-Exit_3.Text = ""
-Exit_3.ZIndex = 10
-
-ExitImage_3.Parent = Exit_3
-ExitImage_3.BackgroundColor3 = Color3.new(1, 1, 1)
-ExitImage_3.BackgroundTransparency = 1
-ExitImage_3.Position = UDim2.new(0, 5, 0, 5)
-ExitImage_3.Size = UDim2.new(0, 10, 0, 10)
-ExitImage_3.Image = "rbxassetid://5054663650"
-ExitImage_3.ZIndex = 10
-
 AliasHint.Name = "AliasHint"
 AliasHint.Parent = AliasesFrame
 AliasHint.BackgroundTransparency = 1
@@ -1942,7 +1836,6 @@ end
 
 dragGUI(logs)
 dragGUI(KeybindEditor)
-dragGUI(PluginEditor)
 dragGUI(ToPartFrame)
 
 eventEditor = (function()
@@ -4187,8 +4080,6 @@ CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio log
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
 CMDs[#CMDs + 1] = {NAME = 'jobid', DESC = 'Copies the games JobId to your clipboard'}
 CMDs[#CMDs + 1] = {NAME = 'notifyjobid', DESC = 'Notifies you the games JobId'}
-CMDs[#CMDs + 1] = {NAME = 'rejoin / rj', DESC = 'Makes you rejoin the game'}
-CMDs[#CMDs + 1] = {NAME = 'autorejoin / autorj', DESC = 'Automatically rejoins the server if you get kicked/disconnected'}
 CMDs[#CMDs + 1] = {NAME = 'serverhop / shop', DESC = 'Teleports you to a different server'}
 CMDs[#CMDs + 1] = {NAME = 'joinplayer [username / ID] [place ID]', DESC = 'Joins a specific players server'}
 CMDs[#CMDs + 1] = {NAME = 'gameteleport / gametp [place ID]', DESC = 'Joins a game by ID'}
@@ -4217,7 +4108,6 @@ CMDs[#CMDs + 1] = {NAME = 'savegame / saveplace', DESC = 'Uses saveinstance to s
 CMDs[#CMDs + 1] = {NAME = 'clearerror', DESC = 'Clears the annoying box and blur when a game kicks you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantikick / antikick (CLIENT)', DESC = 'Prevents localscripts from kicking you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantiteleport / antiteleport (CLIENT)', DESC = 'Prevents localscripts from teleporting you'}
-CMDs[#CMDs + 1] = {NAME = 'allowrejoin / allowrj [true/false] (CLIENT)', DESC = 'Changes if antiteleport allows you to rejoin or not'}
 CMDs[#CMDs + 1] = {NAME = 'cancelteleport / canceltp', DESC = 'Cancels teleports in progress'}
 CMDs[#CMDs + 1] = {NAME = 'volume / vol [0-10]', DESC = 'Adjusts your game volume on a scale of 0 to 10'}
 CMDs[#CMDs + 1] = {NAME = 'antilag / boostfps / lowgraphics', DESC = 'Lowers game quality to boost FPS'}
@@ -4556,9 +4446,6 @@ CMDs[#CMDs + 1] = {NAME = 'addalias [cmd] [alias]', DESC = 'Adds an alias to a c
 CMDs[#CMDs + 1] = {NAME = 'removealias [alias]', DESC = 'Removes a custom alias'}
 CMDs[#CMDs + 1] = {NAME = 'clraliases', DESC = 'Removes all custom aliases'}
 CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
-CMDs[#CMDs + 1] = {NAME = 'addplugin / plugin [name]', DESC = 'Add a plugin via command'}
-CMDs[#CMDs + 1] = {NAME = 'removeplugin / deleteplugin [name]', DESC = 'Remove a plugin via command'}
-CMDs[#CMDs + 1] = {NAME = 'reloadplugin [name]', DESC = 'Reloads a plugin'}
 CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
 CMDs[#CMDs + 1] = {NAME = 'breakloops / break (cmd loops)', DESC = 'Stops any cmd loops (;100^1^cmd)'}
 CMDs[#CMDs + 1] = {NAME = 'removecmd / deletecmd', DESC = 'Removes a command until the admin is reloaded'}
@@ -4883,28 +4770,6 @@ function addbind(cmd,key,iskeyup,toggle)
 				KEY=key;
 				ISKEYUP=iskeyup;
 			}
-	end
-end
-
-function addcmdtext(text,name,desc)
-	local newcmd = Example:Clone()
-	local tooltipText = tostring(text)
-	local tooltipDesc = tostring(desc)
-	newcmd.Parent = CMDsF
-	newcmd.Visible = false
-	newcmd.Text = text
-	newcmd.Name = 'PLUGIN_'..name
-	table.insert(text1,newcmd)
-	if desc and desc ~= '' then
-		newcmd:SetAttribute("Title", tooltipText)
-		newcmd:SetAttribute("Desc", tooltipDesc)
-		newcmd.MouseButton1Down:Connect(function()
-			if newcmd.Visible and newcmd.TextTransparency == 0 then
-				Cmdbar:CaptureFocus()
-				autoComplete(newcmd.Text)
-				maximizeHolder()
-			end
-		end)
 	end
 end
 
@@ -5943,7 +5808,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if KeepInfYield and (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
-		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()")
+		queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/crazystuffmaker/Codling_iy/main/customthingy'))()")
 	end
 end)
 
@@ -6358,23 +6223,6 @@ end)
 
 addcmd('gametp',{'gameteleport'},function(args, speaker)
 	TeleportService:Teleport(args[1])
-end)
-
-addcmd("rejoin", {"rj"}, function(args, speaker)
-	if #Players:GetPlayers() <= 1 then
-		Players.LocalPlayer:Kick("\nRejoining...")
-		wait()
-		TeleportService:Teleport(PlaceId, Players.LocalPlayer)
-	else
-		TeleportService:TeleportToPlaceInstance(PlaceId, JobId, Players.LocalPlayer)
-	end
-end)
-
-addcmd("autorejoin", {"autorj"}, function(args, speaker)
-	GuiService.ErrorMessageChanged:Connect(function()
-		execCmd("rejoin")
-	end)
-	notify("Auto Rejoin", "Auto rejoin enabled")
 end)
 
 addcmd("serverhop", {"shop"}, function(args, speaker)
@@ -7356,16 +7204,6 @@ addcmd('clientantiteleport',{'antiteleport'},function(args, speaker)
 	end)
 
 	notify('Client AntiTP','Client anti teleport is now active (only effective on localscript teleport)')
-end)
-
-addcmd('allowrejoin',{'allowrj'},function(args, speaker)
-	if args[1] and args[1] == 'false' then
-		allow_rj = false
-		notify('Client AntiTP','Allow rejoin set to false')
-	else
-		allow_rj = true
-		notify('Client AntiTP','Allow rejoin set to true')
-	end
 end)
 
 addcmd('cancelteleport',{'canceltp'},function(args, speaker)
@@ -11883,21 +11721,6 @@ end)
 addcmd('unautokeypress',{'noautokeypress','unkeypress','nokeypress'},function(args, speaker)
 	autoKeyPressing = false
 	if cancelAutoKeyPress then cancelAutoKeyPress:Disconnect() end
-end)
-
-addcmd('addplugin',{'plugin'},function(args, speaker)
-	addPlugin(getstring(1))
-end)
-
-addcmd('removeplugin',{'deleteplugin'},function(args, speaker)
-	deletePlugin(getstring(1))
-end)
-
-addcmd('reloadplugin',{},function(args, speaker)
-	local pluginName = getstring(1)
-	deletePlugin(pluginName)
-	wait(1)
-	addPlugin(pluginName)
 end)
 
 addcmd('removecmd',{'deletecmd'},function(args, speaker)
