@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/crazystuffmaker/Codling_iy/main/customthingy"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/bnarpbnarp/Codling_iy/main/customthingy"))()
